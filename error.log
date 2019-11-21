@@ -1,0 +1,14 @@
+2019-10-29 14:58:44.619: TLFactory not instanciated, you must call PylonInitialize()
+2019-10-29 14:58:45.514: 打开相机失败！
+2019-10-29 15:02:59.978: No device contains the provided device info properties.
+2019-10-29 15:03:00.971: 打开相机失败！
+2019-10-29 15:03:16.835: No device contains the provided device info properties.
+2019-10-29 15:03:17.691: 打开相机失败！
+2019-10-29 15:29:02.778: Failed to open 'Basler acA2500-14gc#0030532EC327#33.33.33.12:3956'. The device is controlled by another application. Err: An attempt was made to access an address location which is currently/momentary not accessible. (0xE1018006)
+
+2019-10-29 15:29:03.662: 打开相机失败！
+2019-10-29 16:00:04.012: 输入为空！
+2019-10-29 16:01:09.215: 输入为空！
+2019-10-29 16:01:16.767: 输入为空！
+2019-11-18 14:15:24.795: 开启服务器失败！
+2019-11-18 15:23:24.059: 开启服务器失败！
