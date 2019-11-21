@@ -27,6 +27,8 @@ struct AGVResult
 #define _TCP_IP_ADR_	L"192.168.0.34"
 #define _TCP_IP_PORT_	3000
 
+#define _GITHUB_UPLOAD_	"github.bat"
+
 #define _DECT_THRE_		128
 #define _DECT_THRE_1	68
 #define _DECT_THRE_5	68

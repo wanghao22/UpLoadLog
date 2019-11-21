@@ -424,6 +424,7 @@ void CSJTU_AGV_DectDlg::OnCancel()
 	PylonTerminate();
 	m_log.INFO_LOG("-----½áÊø³ÌÐò-----OnCancel\n");
 	m_log.GLOG_end_();
+	system(_GITHUB_UPLOAD_);
 
 	CDialogEx::OnCancel();
 }
