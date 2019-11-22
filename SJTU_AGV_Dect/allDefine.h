@@ -1,7 +1,7 @@
 #pragma once
 
-#define _INFO_FILE_ "..\\info.log"
-#define _ERROR_FILE_ "..\\error.log"
+//#define _INFO_FILE_ "..\\info.log"
+//#define _ERROR_FILE_ "..\\error.log"
 #define _DEMARCATE_FILE_	"demarcate.xml"
 
 #define _CAMERA_SN_ "23064615"

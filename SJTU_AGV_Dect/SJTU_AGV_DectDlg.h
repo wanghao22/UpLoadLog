@@ -15,6 +15,7 @@
 #include <pylon/gige/BaslerGigEInstantCamera.h>
 #include <HPSocket.h>
 #include "Bayer2BGR.h"
+#include <Netlistmgr.h>
 
 using namespace Pylon;
 using namespace Basler_GigECamera;
@@ -89,4 +90,5 @@ public:
 	bool m_open_cam_flag;
 	BayerToBGR m_to;
 	bool color_img_flag;
+	bool checkIsNetwork();
 };

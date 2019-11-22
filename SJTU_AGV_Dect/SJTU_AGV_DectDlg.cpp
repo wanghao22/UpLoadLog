@@ -1,5 +1,5 @@
-
-// SJTU_AGV_DectDlg.cpp : ÊµÏÖÎÄ¼ş
+ï»¿
+// SJTU_AGV_DectDlg.cpp : å®ç°æ–‡ä»¶
 //
 
 #include "stdafx.h"
@@ -63,20 +63,20 @@ protected:
 	GenApi::CIntegerPtr m_pHeartbeatTimeout; // Pointer to the node, will be NULL if no node exists.
 };
 
-// ÓÃÓÚÓ¦ÓÃ³ÌĞò¡°¹ØÓÚ¡±²Ëµ¥ÏîµÄ CAboutDlg ¶Ô»°¿ò
+// ç”¨äºåº”ç”¨ç¨‹åºâ€œå…³äºâ€èœå•é¡¹çš„ CAboutDlg å¯¹è¯æ¡†
 
 class CAboutDlg : public CDialogEx
 {
 public:
 	CAboutDlg();
 
-// ¶Ô»°¿òÊı¾İ
+// å¯¹è¯æ¡†æ•°æ®
 	enum { IDD = IDD_ABOUTBOX };
 
 	protected:
-	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV Ö§³Ö
+	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV æ”¯æŒ
 
-// ÊµÏÖ
+// å®ç°
 protected:
 	DECLARE_MESSAGE_MAP()
 };
@@ -94,7 +94,7 @@ BEGIN_MESSAGE_MAP(CAboutDlg, CDialogEx)
 END_MESSAGE_MAP()
 
 
-// CSJTU_AGV_DectDlg ¶Ô»°¿ò
+// CSJTU_AGV_DectDlg å¯¹è¯æ¡†
 
 
 
@@ -124,15 +124,15 @@ BEGIN_MESSAGE_MAP(CSJTU_AGV_DectDlg, CDialogEx)
 END_MESSAGE_MAP()
 
 
-// CSJTU_AGV_DectDlg ÏûÏ¢´¦Àí³ÌĞò
+// CSJTU_AGV_DectDlg æ¶ˆæ¯å¤„ç†ç¨‹åº
 
 BOOL CSJTU_AGV_DectDlg::OnInitDialog()
 {
 	CDialogEx::OnInitDialog();
 
-	// ½«¡°¹ØÓÚ...¡±²Ëµ¥ÏîÌí¼Óµ½ÏµÍ³²Ëµ¥ÖĞ¡£
+	// å°†â€œå…³äº...â€èœå•é¡¹æ·»åŠ åˆ°ç³»ç»Ÿèœå•ä¸­ã€‚
 
-	// IDM_ABOUTBOX ±ØĞëÔÚÏµÍ³ÃüÁî·¶Î§ÄÚ¡£
+	// IDM_ABOUTBOX å¿…é¡»åœ¨ç³»ç»Ÿå‘½ä»¤èŒƒå›´å†…ã€‚
 	ASSERT((IDM_ABOUTBOX & 0xFFF0) == IDM_ABOUTBOX);
 	ASSERT(IDM_ABOUTBOX < 0xF000);
 
@@ -150,14 +150,14 @@ BOOL CSJTU_AGV_DectDlg::OnInitDialog()
 		}
 	}
 
-	// ÉèÖÃ´Ë¶Ô»°¿òµÄÍ¼±ê¡£  µ±Ó¦ÓÃ³ÌĞòÖ÷´°¿Ú²»ÊÇ¶Ô»°¿òÊ±£¬¿ò¼Ü½«×Ô¶¯
-	//  Ö´ĞĞ´Ë²Ù×÷
-	SetIcon(m_hIcon, TRUE);			// ÉèÖÃ´óÍ¼±ê
-	SetIcon(m_hIcon, FALSE);		// ÉèÖÃĞ¡Í¼±ê
+	// è®¾ç½®æ­¤å¯¹è¯æ¡†çš„å›¾æ ‡ã€‚  å½“åº”ç”¨ç¨‹åºä¸»çª—å£ä¸æ˜¯å¯¹è¯æ¡†æ—¶ï¼Œæ¡†æ¶å°†è‡ªåŠ¨
+	//  æ‰§è¡Œæ­¤æ“ä½œ
+	SetIcon(m_hIcon, TRUE);			// è®¾ç½®å¤§å›¾æ ‡
+	SetIcon(m_hIcon, FALSE);		// è®¾ç½®å°å›¾æ ‡
 
-	// TODO:  ÔÚ´ËÌí¼Ó¶îÍâµÄ³õÊ¼»¯´úÂë
+	// TODO:  åœ¨æ­¤æ·»åŠ é¢å¤–çš„åˆå§‹åŒ–ä»£ç 
 	__init__();
-	return TRUE;  // ³ı·Ç½«½¹µãÉèÖÃµ½¿Ø¼ş£¬·ñÔò·µ»Ø TRUE
+	return TRUE;  // é™¤éå°†ç„¦ç‚¹è®¾ç½®åˆ°æ§ä»¶ï¼Œå¦åˆ™è¿”å› TRUE
 }
 
 void CSJTU_AGV_DectDlg::OnSysCommand(UINT nID, LPARAM lParam)
@@ -173,19 +173,19 @@ void CSJTU_AGV_DectDlg::OnSysCommand(UINT nID, LPARAM lParam)
 	}
 }
 
-// Èç¹ûÏò¶Ô»°¿òÌí¼Ó×îĞ¡»¯°´Å¥£¬ÔòĞèÒªÏÂÃæµÄ´úÂë
-//  À´»æÖÆ¸ÃÍ¼±ê¡£  ¶ÔÓÚÊ¹ÓÃÎÄµµ/ÊÓÍ¼Ä£ĞÍµÄ MFC Ó¦ÓÃ³ÌĞò£¬
-//  Õâ½«ÓÉ¿ò¼Ü×Ô¶¯Íê³É¡£
+// å¦‚æœå‘å¯¹è¯æ¡†æ·»åŠ æœ€å°åŒ–æŒ‰é’®ï¼Œåˆ™éœ€è¦ä¸‹é¢çš„ä»£ç 
+//  æ¥ç»˜åˆ¶è¯¥å›¾æ ‡ã€‚  å¯¹äºä½¿ç”¨æ–‡æ¡£/è§†å›¾æ¨¡å‹çš„ MFC åº”ç”¨ç¨‹åºï¼Œ
+//  è¿™å°†ç”±æ¡†æ¶è‡ªåŠ¨å®Œæˆã€‚
 
 void CSJTU_AGV_DectDlg::OnPaint()
 {
 	if (IsIconic())
 	{
-		CPaintDC dc(this); // ÓÃÓÚ»æÖÆµÄÉè±¸ÉÏÏÂÎÄ
+		CPaintDC dc(this); // ç”¨äºç»˜åˆ¶çš„è®¾å¤‡ä¸Šä¸‹æ–‡
 
 		SendMessage(WM_ICONERASEBKGND, reinterpret_cast<WPARAM>(dc.GetSafeHdc()), 0);
 
-		// Ê¹Í¼±êÔÚ¹¤×÷Çø¾ØĞÎÖĞ¾ÓÖĞ
+		// ä½¿å›¾æ ‡åœ¨å·¥ä½œåŒºçŸ©å½¢ä¸­å±…ä¸­
 		int cxIcon = GetSystemMetrics(SM_CXICON);
 		int cyIcon = GetSystemMetrics(SM_CYICON);
 		CRect rect;
@@ -193,7 +193,7 @@ void CSJTU_AGV_DectDlg::OnPaint()
 		int x = (rect.Width() - cxIcon + 1) / 2;
 		int y = (rect.Height() - cyIcon + 1) / 2;
 
-		// »æÖÆÍ¼±ê
+		// ç»˜åˆ¶å›¾æ ‡
 		dc.DrawIcon(x, y, m_hIcon);
 	}
 	else
@@ -202,18 +202,18 @@ void CSJTU_AGV_DectDlg::OnPaint()
 	}
 }
 
-//µ±ÓÃ»§ÍÏ¶¯×îĞ¡»¯´°¿ÚÊ±ÏµÍ³µ÷ÓÃ´Ëº¯ÊıÈ¡µÃ¹â±ê
-//ÏÔÊ¾¡£
+//å½“ç”¨æˆ·æ‹–åŠ¨æœ€å°åŒ–çª—å£æ—¶ç³»ç»Ÿè°ƒç”¨æ­¤å‡½æ•°å–å¾—å…‰æ ‡
+//æ˜¾ç¤ºã€‚
 HCURSOR CSJTU_AGV_DectDlg::OnQueryDragIcon()
 {
 	return static_cast<HCURSOR>(m_hIcon);
 }
 
 
-//±ê¶¨
+//æ ‡å®š
 void CSJTU_AGV_DectDlg::OnBnClickedButtonSetcap()
 {
-	// TODO:  ÔÚ´ËÌí¼Ó¿Ø¼şÍ¨Öª´¦Àí³ÌĞò´úÂë
+	// TODO:  åœ¨æ­¤æ·»åŠ æ§ä»¶é€šçŸ¥å¤„ç†ç¨‹åºä»£ç 
 	//m_src = imread(_TEST_IMG_FILE_);
 	int cursel = m_combox_select.GetCurSel();
 	if (m_open_cam_flag)
@@ -221,8 +221,8 @@ void CSJTU_AGV_DectDlg::OnBnClickedButtonSetcap()
 		CGrabResultPtr ptrPipeGrabResult;
 		if (!TriggerCameraAndGrabImage(m_Camera, ptrPipeGrabResult, m_src))
 		{
-			AfxMessageBox(L"²É¼¯Ê§°Ü");
-			m_log.INFO_LOG("²É¼¯Ê§°Ü");
+			AfxMessageBox(L"é‡‡é›†å¤±è´¥");
+			m_log.INFO_LOG("é‡‡é›†å¤±è´¥");
 			return;
 		}
 		int rc = 0;
@@ -239,22 +239,22 @@ void CSJTU_AGV_DectDlg::OnBnClickedButtonSetcap()
 			m_parames[cursel] = m_result;
 			if (SaveParam(_DEMARCATE_FILE_) != 0)
 			{
-				m_log.ERROR_LOG("±£´æ±ê¶¨ÎÄ¼şÊ§°Ü£¡");
+				m_log.ERROR_LOG("ä¿å­˜æ ‡å®šæ–‡ä»¶å¤±è´¥ï¼");
 				return;
 			}
-			m_log.INFO_LOG("±ê¶¨Íê³É");
-			SetDlgItemText(IDC_TEXT_RESULT, L"¶¨Î»Íê³É");
+			m_log.INFO_LOG("æ ‡å®šå®Œæˆ");
+			SetDlgItemText(IDC_TEXT_RESULT, L"å®šä½å®Œæˆ");
 		}
 		else
 		{
-			SetDlgItemText(IDC_TEXT_RESULT, L"¶¨Î»Òì³£");
-			m_log.INFO_LOG("±ê¶¨Òì³£");
+			SetDlgItemText(IDC_TEXT_RESULT, L"å®šä½å¼‚å¸¸");
+			m_log.INFO_LOG("æ ‡å®šå¼‚å¸¸");
 		}
 	}
 	else
 	{
-		AfxMessageBox(L"ÇëÏÈ´ò¿ªÏà»ú");
-		m_log.INFO_LOG("ÇëÏÈ´ò¿ªÏà»ú");
+		AfxMessageBox(L"è¯·å…ˆæ‰“å¼€ç›¸æœº");
+		m_log.INFO_LOG("è¯·å…ˆæ‰“å¼€ç›¸æœº");
 	}
 }
 
@@ -263,68 +263,83 @@ void CSJTU_AGV_DectDlg::__init__()
 	color_img_flag = false;
 	ShowWindow(SW_MAXIMIZE);
 	SetImgWindow(IDC_SHOW_IMG, _WIN_NAME_);
-	m_log.GLOG_start_(_INFO_FILE_, _ERROR_FILE_);
-	//»ñµÃ´°¿Ú³ß´ç
+
+	char info_file[30], error_file[30];
+	SYSTEMTIME time;
+	GetLocalTime(&time);
+	if (time.wMonth < 10)
+	{
+		sprintf_s(info_file, "../info_%4d_0%d.log", time.wYear, time.wMonth);
+		sprintf_s(error_file, "../error_%4d_0%d.log", time.wYear, time.wMonth);
+	}
+	else
+	{
+		sprintf_s(info_file, "../info_%4d_%d.log", time.wYear, time.wMonth);
+		sprintf_s(error_file, "../error_%4d_%d.log", time.wYear, time.wMonth);
+	}
+
+	m_log.GLOG_start_(info_file, error_file);
+	//è·å¾—çª—å£å°ºå¯¸
 	GetClientRect(&m_wndRect);
 
 	PylonInitialize();
-	//ÉèÖÃÑÕÉ«ºÍ×ÖÌå
+	//è®¾ç½®é¢œè‰²å’Œå­—ä½“
 	m_greenBrush.CreateSolidBrush(RGB(0, 255, 0));
 	m_redBrush.CreateSolidBrush(RGB(255, 0, 0));
 	m_grayBrush.CreateSolidBrush(RGB(0x80, 0x80, 0x80));
 
-	m_bigFont.CreatePointFont(200, L"Î¢ÈíÑÅºÚ");
+	m_bigFont.CreatePointFont(200, L"å¾®è½¯é›…é»‘");
 	GetDlgItem(IDC_TEXT_RESULT)->SetFont(&m_bigFont);
 
-	m_combox_select.AddString(L"¹¤Î»Ò»");
-	m_combox_select.AddString(L"¹¤Î»¶ş");
-	m_combox_select.AddString(L"¹¤Î»Èı");
-	m_combox_select.AddString(L"¹¤Î»ËÄ");
-	m_combox_select.AddString(L"¹¤Î»Îå");
-	/*m_combox_select.AddString(L"¹¤Î»Áù");
-	m_combox_select.AddString(L"¹¤Î»Æß");
-	m_combox_select.AddString(L"¹¤Î»°Ë");
-	m_combox_select.AddString(L"¹¤Î»¾Å");
-	m_combox_select.AddString(L"¹¤Î»Ê®");
-	m_combox_select.AddString(L"¹¤Î»Ê®Ò»");
-	m_combox_select.AddString(L"¹¤Î»Ê®¶ş");
-	m_combox_select.AddString(L"¹¤Î»Ê®Èı");*/
+	m_combox_select.AddString(L"å·¥ä½ä¸€");
+	m_combox_select.AddString(L"å·¥ä½äºŒ");
+	m_combox_select.AddString(L"å·¥ä½ä¸‰");
+	m_combox_select.AddString(L"å·¥ä½å››");
+	m_combox_select.AddString(L"å·¥ä½äº”");
+	/*m_combox_select.AddString(L"å·¥ä½å…­");
+	m_combox_select.AddString(L"å·¥ä½ä¸ƒ");
+	m_combox_select.AddString(L"å·¥ä½å…«");
+	m_combox_select.AddString(L"å·¥ä½ä¹");
+	m_combox_select.AddString(L"å·¥ä½å");
+	m_combox_select.AddString(L"å·¥ä½åä¸€");
+	m_combox_select.AddString(L"å·¥ä½åäºŒ");
+	m_combox_select.AddString(L"å·¥ä½åä¸‰");*/
 	m_combox_select.SetCurSel(0);
 
 	m_src = Mat::zeros(IMG_HEIGHT, IMG_WIDTH, CV_8UC3);
-	m_log.INFO_LOG("-----³ÌĞò¿ªÊ¼-----__init__");
+	m_log.INFO_LOG("-----ç¨‹åºå¼€å§‹-----__init__");
 	if (!m_server->Start(_TCP_IP_ADR_, _TCP_IP_PORT_))
 	{
-		AfxMessageBox(L"¿ªÆô·şÎñÆ÷Ê§°Ü£¡");
-		m_log.ERROR_LOG("¿ªÆô·şÎñÆ÷Ê§°Ü£¡");
+		AfxMessageBox(L"å¼€å¯æœåŠ¡å™¨å¤±è´¥ï¼");
+		m_log.ERROR_LOG("å¼€å¯æœåŠ¡å™¨å¤±è´¥ï¼");
 		return;
 	}
 
 	if (LoadParam(_DEMARCATE_FILE_) != 0)
 	{
-		AfxMessageBox(L"¼ÓÔØ±ê¶¨ÎÄ¼şÊ§°Ü£¡");
-		m_log.ERROR_LOG("¼ÓÔØ±ê¶¨ÎÄ¼şÊ§°Ü£¡");
+		AfxMessageBox(L"åŠ è½½æ ‡å®šæ–‡ä»¶å¤±è´¥ï¼");
+		m_log.ERROR_LOG("åŠ è½½æ ‡å®šæ–‡ä»¶å¤±è´¥ï¼");
 		return;
 	}
 	if (openCamera() != 0)
 	{
-		AfxMessageBox(L"´ò¿ªÏà»úÊ§°Ü£¡");
-		m_log.ERROR_LOG("´ò¿ªÏà»úÊ§°Ü£¡");
+		AfxMessageBox(L"æ‰“å¼€ç›¸æœºå¤±è´¥ï¼");
+		m_log.ERROR_LOG("æ‰“å¼€ç›¸æœºå¤±è´¥ï¼");
 		return;
 	}
 }
 
-//³õÊ¼»¯ÓÃ£¬È·¶¨´°¿Ú¿Ø¼şºÍ´°¿ÚÃû³Æ
+//åˆå§‹åŒ–ç”¨ï¼Œç¡®å®šçª—å£æ§ä»¶å’Œçª—å£åç§°
 void CSJTU_AGV_DectDlg::SetImgWindow(int Dlgitem, const char* str)
 {
 	namedWindow(str, WINDOW_AUTOSIZE);
 	HWND hWnd = (HWND)cvGetWindowHandle(str);
 	HWND hParent = ::GetParent(hWnd);
-	::SetParent(hWnd, GetDlgItem(Dlgitem)->m_hWnd);  //picture¿Ø¼ş
+	::SetParent(hWnd, GetDlgItem(Dlgitem)->m_hWnd);  //pictureæ§ä»¶
 	::ShowWindow(hParent, SW_HIDE);
 }
 
-//ÏÔÊ¾Í¼Ïñ
+//æ˜¾ç¤ºå›¾åƒ
 void CSJTU_AGV_DectDlg::ShowMatImg(cv::Mat src, int Dlgitem, const char* str)
 {
 	if (src.empty())
@@ -368,47 +383,47 @@ void CSJTU_AGV_DectDlg::ShowMatImg(cv::Mat src, int Dlgitem, const char* str)
 
 void CSJTU_AGV_DectDlg::OnSize(UINT nType, int cx, int cy)
 {
-	// TODO:  ÔÚ´Ë´¦Ìí¼ÓÏûÏ¢´¦Àí³ÌĞò´úÂë
-	for (int i = 1000; i < 1040; i++)//ÒòÎªÊÇ¶à¸ö¿Ø¼ş£¬ËùÒÔÕâÀïÓÃÁËÑ­»·
+	// TODO:  åœ¨æ­¤å¤„æ·»åŠ æ¶ˆæ¯å¤„ç†ç¨‹åºä»£ç 
+	for (int i = 1000; i < 1040; i++)//å› ä¸ºæ˜¯å¤šä¸ªæ§ä»¶ï¼Œæ‰€ä»¥è¿™é‡Œç”¨äº†å¾ªç¯
 	{
 		CWnd *pWnd = GetDlgItem(i);
-		if (pWnd && nType != 1 && m_wndRect.Width() && m_wndRect.Height())  //ÅĞ¶ÏÊÇ·ñÎª¿Õ£¬ÒòÎª¶Ô»°¿ò´´½¨Ê±»áµ÷ÓÃ´Ëº¯Êı£¬¶øµ±Ê±¿Ø¼ş»¹Î´´´½¨
+		if (pWnd && nType != 1 && m_wndRect.Width() && m_wndRect.Height())  //åˆ¤æ–­æ˜¯å¦ä¸ºç©ºï¼Œå› ä¸ºå¯¹è¯æ¡†åˆ›å»ºæ—¶ä¼šè°ƒç”¨æ­¤å‡½æ•°ï¼Œè€Œå½“æ—¶æ§ä»¶è¿˜æœªåˆ›å»º
 		{
-			CRect rect;   //»ñÈ¡¿Ø¼ş±ä»¯Ç°µÄ´óĞ¡ 
+			CRect rect;   //è·å–æ§ä»¶å˜åŒ–å‰çš„å¤§å° 
 			pWnd->GetWindowRect(&rect);
-			ScreenToClient(&rect);//½«¿Ø¼ş´óĞ¡×ª»»ÎªÔÚ¶Ô»°¿òÖĞµÄÇøÓò×ø±ê
-			rect.left = rect.left*cx / m_wndRect.Width();//µ÷Õû¿Ø¼ş´óĞ¡
+			ScreenToClient(&rect);//å°†æ§ä»¶å¤§å°è½¬æ¢ä¸ºåœ¨å¯¹è¯æ¡†ä¸­çš„åŒºåŸŸåæ ‡
+			rect.left = rect.left*cx / m_wndRect.Width();//è°ƒæ•´æ§ä»¶å¤§å°
 			rect.right = rect.right*cx / m_wndRect.Width();
 			rect.top = rect.top*cy / m_wndRect.Height();
 			rect.bottom = rect.bottom*cy / m_wndRect.Height();
-			pWnd->MoveWindow(rect);//ÉèÖÃ¿Ø¼ş´óĞ¡ 
+			pWnd->MoveWindow(rect);//è®¾ç½®æ§ä»¶å¤§å° 
 		}
 	}
-	//¸Ä±ä³ß´çÊ±ÉèÖÃlistCtrlµÄÁĞ¿í
+	//æ”¹å˜å°ºå¯¸æ—¶è®¾ç½®listCtrlçš„åˆ—å®½
 	if (m_result_list.m_hWnd)
 	{
 		CRect listRect;
 		m_result_list.GetClientRect(&listRect);
 		m_result_list.SetExtendedStyle(m_result_list.GetExtendedStyle() | LVS_EX_GRIDLINES
 			| LVS_EX_FULLROWSELECT);
-		m_result_list.InsertColumn(0, L"ĞòºÅ", LVCFMT_CENTER, listRect.Width() / 5);//Ê¹ctrlListÖ»ÓĞÒ»ÁĞ
-		m_result_list.InsertColumn(1, L"X·½ÏòÆ«²î", LVCFMT_CENTER, listRect.Width() / 4);//Ê¹ctrlListÖ»ÓĞÒ»ÁĞ
-		m_result_list.InsertColumn(2, L"Y·½ÏòÆ«²î", LVCFMT_CENTER, listRect.Width() / 4);//Ê¹ctrlListÖ»ÓĞÒ»ÁĞ
-		m_result_list.InsertColumn(3, L"Æ«×ª½Ç¶È", LVCFMT_CENTER, listRect.Width() - 2 * listRect.Width() / 4 - listRect.Width() / 5);//Ê¹ctrlListÖ»ÓĞÒ»ÁĞ
+		m_result_list.InsertColumn(0, L"åºå·", LVCFMT_CENTER, listRect.Width() / 5);//ä½¿ctrlListåªæœ‰ä¸€åˆ—
+		m_result_list.InsertColumn(1, L"Xæ–¹å‘åå·®", LVCFMT_CENTER, listRect.Width() / 4);//ä½¿ctrlListåªæœ‰ä¸€åˆ—
+		m_result_list.InsertColumn(2, L"Yæ–¹å‘åå·®", LVCFMT_CENTER, listRect.Width() / 4);//ä½¿ctrlListåªæœ‰ä¸€åˆ—
+		m_result_list.InsertColumn(3, L"åè½¬è§’åº¦", LVCFMT_CENTER, listRect.Width() - 2 * listRect.Width() / 4 - listRect.Width() / 5);//ä½¿ctrlListåªæœ‰ä¸€åˆ—
 	}
-	//ÖØĞÂ»ñµÃ´°¿Ú³ß´ç
+	//é‡æ–°è·å¾—çª—å£å°ºå¯¸
 	GetClientRect(&m_wndRect);
 }
 
 
 void CSJTU_AGV_DectDlg::OnOK()
 {
-	// TODO:  ÔÚ´ËÌí¼Ó×¨ÓÃ´úÂëºÍ/»òµ÷ÓÃ»ùÀà
+	// TODO:  åœ¨æ­¤æ·»åŠ ä¸“ç”¨ä»£ç å’Œ/æˆ–è°ƒç”¨åŸºç±»
 	m_server->Stop();
 	if (m_open_cam_flag)
 		closeCamera();
 	PylonTerminate();
-	m_log.INFO_LOG("-----½áÊø³ÌĞò-----OnOK\n");
+	m_log.INFO_LOG("-----ç»“æŸç¨‹åº-----OnOK\n");
 	m_log.GLOG_end_();
 
 	CDialogEx::OnOK();
@@ -417,14 +432,15 @@ void CSJTU_AGV_DectDlg::OnOK()
 
 void CSJTU_AGV_DectDlg::OnCancel()
 {
-	// TODO:  ÔÚ´ËÌí¼Ó×¨ÓÃ´úÂëºÍ/»òµ÷ÓÃ»ùÀà
+	// TODO:  åœ¨æ­¤æ·»åŠ ä¸“ç”¨ä»£ç å’Œ/æˆ–è°ƒç”¨åŸºç±»
 	m_server->Stop();
 	if (m_open_cam_flag)
 		closeCamera();
 	PylonTerminate();
-	m_log.INFO_LOG("-----½áÊø³ÌĞò-----OnCancel\n");
+	m_log.INFO_LOG("-----ç»“æŸç¨‹åº-----OnCancel\n");
 	m_log.GLOG_end_();
-	system(_GITHUB_UPLOAD_);
+	if (checkIsNetwork())
+		system(_GITHUB_UPLOAD_);
 
 	CDialogEx::OnCancel();
 }
@@ -434,7 +450,7 @@ HBRUSH CSJTU_AGV_DectDlg::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 {
 	HBRUSH hbr = CDialogEx::OnCtlColor(pDC, pWnd, nCtlColor);
 
-	// TODO:  ÔÚ´Ë¸ü¸Ä DC µÄÈÎºÎÌØĞÔ
+	// TODO:  åœ¨æ­¤æ›´æ”¹ DC çš„ä»»ä½•ç‰¹æ€§
 	CString str;
 	switch (pWnd->GetDlgCtrlID())
 	{
@@ -442,11 +458,11 @@ HBRUSH CSJTU_AGV_DectDlg::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 		pDC->SetBkMode(TRANSPARENT);
 		pDC->SetTextColor(RGB(255, 255, 255));
 		GetDlgItemText(IDC_TEXT_RESULT, str);
-		if (str == _T("¶¨Î»Íê³É"))
+		if (str == _T("å®šä½å®Œæˆ"))
 		{
 			return m_greenBrush;
 		}
-		else if (str == _T("¶¨Î»Òì³£"))
+		else if (str == _T("å®šä½å¼‚å¸¸"))
 		{
 			return m_redBrush;
 		}
@@ -455,7 +471,7 @@ HBRUSH CSJTU_AGV_DectDlg::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 		break;
 	}
 
-	// TODO:  Èç¹ûÄ¬ÈÏµÄ²»ÊÇËùĞè»­±Ê£¬Ôò·µ»ØÁíÒ»¸ö»­±Ê
+	// TODO:  å¦‚æœé»˜è®¤çš„ä¸æ˜¯æ‰€éœ€ç”»ç¬”ï¼Œåˆ™è¿”å›å¦ä¸€ä¸ªç”»ç¬”
 	return hbr;
 }
 
@@ -470,7 +486,7 @@ void CSJTU_AGV_DectDlg::DrawBox(CvBox2D box, cv::Mat &dst, cv::Scalar color)
 		point[i].y = 0;
 
 	}
-	cvBoxPoints(box, point); //¼ÆËã¶şÎ¬ºĞ×Ó¶¥µã
+	cvBoxPoints(box, point); //è®¡ç®—äºŒç»´ç›’å­é¡¶ç‚¹
 	vector<Point> pt;
 	vector<vector<Point>> ppt;
 	for (i = 0; i < 4; i++)
@@ -488,7 +504,7 @@ int CSJTU_AGV_DectDlg::DectMain(cv::Mat src, int thre, double min_area,
 {
 	if (src.empty())
 	{
-		m_log.ERROR_LOG("ÊäÈëÎª¿Õ£¡");
+		m_log.ERROR_LOG("è¾“å…¥ä¸ºç©ºï¼");
 		return -1;
 	}
 	Mat gray, dst;
@@ -504,14 +520,14 @@ int CSJTU_AGV_DectDlg::DectMain(cv::Mat src, int thre, double min_area,
 	}
 	else
 	{
-		m_log.ERROR_LOG("Í¼Ïñ¸ñÊ½²»¶Ô£¡");
+		m_log.ERROR_LOG("å›¾åƒæ ¼å¼ä¸å¯¹ï¼");
 		return -2;
 	}
 	threshold(gray, gray, thre, 0xff, CV_THRESH_BINARY);
 	//imwrite("111.png", gray);
 	std::vector<std::vector<cv::Point>> contours;
 	cv::findContours(gray.clone(), contours, CV_RETR_LIST,
-		CV_CHAIN_APPROX_NONE);//Ã¿¸öÂÖÀªµÄÈ«²¿ÏñËØ
+		CV_CHAIN_APPROX_NONE);//æ¯ä¸ªè½®å»“çš„å…¨éƒ¨åƒç´ 
 	RotatedRect rect;
 	Scalar red(0, 0, 255);
 	int sum = 0;
@@ -522,15 +538,15 @@ int CSJTU_AGV_DectDlg::DectMain(cv::Mat src, int thre, double min_area,
 			TRACE(L"%.2f", area);
 		if (area >= min_area&&area <= max_area)
 		{
-			sprintf_s(vbuf, "%.2fµÄÃæ»ı¿ÉÒÔ", area);
+			sprintf_s(vbuf, "%.2fçš„é¢ç§¯å¯ä»¥", area);
 			m_log.INFO_LOG(vbuf);
 			rect = cv::minAreaRect(contours[i]);
 			float sub = fabs(rect.size.height - rect.size.width);
 			if (sub >= min_whsub&&sub <= max_whsub)
 			{
-				sprintf_s(vbuf, "³¤¿í²î = %.2f", sub);
+				sprintf_s(vbuf, "é•¿å®½å·® = %.2f", sub);
 				m_log.INFO_LOG(vbuf);
-				sprintf_s(vbuf, "Ğı×ª¾ØĞÎ´óĞ¡(%.2f,%.2f)£¬ÖĞĞÄ(%.2f,%.2f)£¬½Ç¶È = %.2f",
+				sprintf_s(vbuf, "æ—‹è½¬çŸ©å½¢å¤§å°(%.2f,%.2f)ï¼Œä¸­å¿ƒ(%.2f,%.2f)ï¼Œè§’åº¦ = %.2f",
 					rect.size.width, rect.size.height, rect.center.x, rect.center.y, rect.angle);
 				m_log.INFO_LOG(vbuf);
 				m_result.pt_x = rect.center.x;
@@ -544,7 +560,7 @@ int CSJTU_AGV_DectDlg::DectMain(cv::Mat src, int thre, double min_area,
 			}
 			else
 			{
-				sprintf_s(vbuf, "µ«ÊÇ³¤¿í²î%.2f²»ĞĞ", sub);
+				sprintf_s(vbuf, "ä½†æ˜¯é•¿å®½å·®%.2fä¸è¡Œ", sub);
 				m_log.INFO_LOG(vbuf);
 			}
 		}
@@ -552,7 +568,7 @@ int CSJTU_AGV_DectDlg::DectMain(cv::Mat src, int thre, double min_area,
 	ShowMatImg(dst, IDC_SHOW_IMG, _WIN_NAME_);
 	if (sum != 1)
 	{
-		sprintf_s(vbuf, "ÂÖÀª¸öÊı²»·ûºÏ£º%d", sum);
+		sprintf_s(vbuf, "è½®å»“ä¸ªæ•°ä¸ç¬¦åˆï¼š%d", sum);
 		m_log.INFO_LOG(vbuf);
 		return -9;
 	}
@@ -574,14 +590,14 @@ int CSJTU_AGV_DectDlg::openCamera()
 
 		m_Camera.Open();
 
-		//ÏÂÔØ²ÎÊıÉèÖÃ
+		//ä¸‹è½½å‚æ•°è®¾ç½®
 		m_Camera.UserSetSelector.SetValue(UserSetSelector_UserSet1);
 		m_Camera.UserSetLoad.Execute();
 		m_Camera.ExposureTimeAbs = 2000;
 
-		//Æô¶¯²¶»ñ
+		//å¯åŠ¨æ•è·
 		m_Camera.StartGrabbing(INFINITE, GrabStrategy_LatestImageOnly, GrabLoop_ProvidedByUser);
-		m_log.INFO_LOG("´ò¿ªÏà»ú³É¹¦");
+		m_log.INFO_LOG("æ‰“å¼€ç›¸æœºæˆåŠŸ");
 		m_open_cam_flag = true;
 	}
 	catch (const GenericException &e)
@@ -615,13 +631,13 @@ bool CSJTU_AGV_DectDlg::TriggerCameraAndGrabImage(CBaslerGigEInstantCamera& came
 						memcpy((uint8_t *)srcImg.datastart, (uint8_t *)ptrGrabResult->GetBuffer(), ptrGrabResult->GetImageSize());
 						srcImg = src.clone();
 						m_to.Bayer8ToRgb24(src.data, src.cols, src.rows, srcImg.data, src.step*src.rows);
-						sprintf_s(vbuf, "»ñÈ¡Í¼Ïñ³É¹¦(%d * %d) RGB", col, row);
+						sprintf_s(vbuf, "è·å–å›¾åƒæˆåŠŸ(%d * %d) RGB", col, row);
 					}
 					else
 					{
 						srcImg = Mat::zeros(row, col, CV_8UC1);
 						memcpy((uint8_t *)srcImg.datastart, (uint8_t *)ptrGrabResult->GetBuffer(), ptrGrabResult->GetImageSize());
-						sprintf_s(vbuf, "»ñÈ¡Í¼Ïñ³É¹¦(%d * %d) GRAY", col, row);
+						sprintf_s(vbuf, "è·å–å›¾åƒæˆåŠŸ(%d * %d) GRAY", col, row);
 					}
 					m_log.INFO_LOG(vbuf);
 				}
@@ -653,7 +669,7 @@ bool CSJTU_AGV_DectDlg::TriggerCameraAndGrabImage(CBaslerGigEInstantCamera& came
 void CSJTU_AGV_DectDlg::closeCamera()
 {
 	m_Camera.DestroyDevice();
-	m_log.INFO_LOG("¹Ø±ÕÏà»ú");
+	m_log.INFO_LOG("å…³é—­ç›¸æœº");
 	m_open_cam_flag = false;
 }
 
@@ -691,32 +707,32 @@ void CSJTU_AGV_DectDlg::ShowResult(AGVResult result, int cursel)
 }
 
 EnHandleResult CSJTU_AGV_DectDlg::OnPrepareListen(ITcpServer * pSender, SOCKET soListen)
-{//¿ªÊ¼¼àÌıÊ±µ÷ÓÃ
-	m_log.INFO_LOG("¿ªÊ¼¼àÌı");
+{//å¼€å§‹ç›‘å¬æ—¶è°ƒç”¨
+	m_log.INFO_LOG("å¼€å§‹ç›‘å¬");
 	return HR_OK;
 }
 
 EnHandleResult CSJTU_AGV_DectDlg::OnAccept(ITcpServer * pSender, CONNID dwConnID, SOCKET soClient)
-{//¿Í»§¶ËÁ¬ÉÏÊ±µ÷ÓÃ
+{//å®¢æˆ·ç«¯è¿ä¸Šæ—¶è°ƒç”¨
 	m_dwConnid = dwConnID;
-	m_log.INFO_LOG("¿Í»§¶ËÁ¬ÉÏ");
+	m_log.INFO_LOG("å®¢æˆ·ç«¯è¿ä¸Š");
 	return HR_OK;
 }
 
 EnHandleResult CSJTU_AGV_DectDlg::OnSend(ITcpServer * pSender, CONNID dwConnID, const BYTE * pData, int iLength)
-{//·¢ËÍÏûÏ¢Ê±µ÷ÓÃ
-	sprintf_s(vbuf, "·¢ËÍÏûÏ¢  %s", (char*)pData);
+{//å‘é€æ¶ˆæ¯æ—¶è°ƒç”¨
+	sprintf_s(vbuf, "å‘é€æ¶ˆæ¯  %s", (char*)pData);
 	m_log.INFO_LOG(vbuf);
 	return HR_OK;
 }
 
 EnHandleResult CSJTU_AGV_DectDlg::OnReceive(ITcpServer * pSender, CONNID dwConnID, const BYTE * pData, int iLength)
-{//½ÓÊÜµ½ÏûÏ¢Ê±µ÷ÓÃ
+{//æ¥å—åˆ°æ¶ˆæ¯æ—¶è°ƒç”¨
 	char* pl = new char[iLength+1];
 	for (int i = 0; i < iLength; i++)
 		pl[i] = pData[i];
 	pl[iLength] = '\0';
-	sprintf_s(vbuf, "½ÓÊÜµ½ÏûÏ¢  %s", pl);
+	sprintf_s(vbuf, "æ¥å—åˆ°æ¶ˆæ¯  %s", pl);
 	m_log.INFO_LOG(vbuf);
 	if (pl != NULL)
 		free(pl);
@@ -727,18 +743,18 @@ EnHandleResult CSJTU_AGV_DectDlg::OnReceive(ITcpServer * pSender, CONNID dwConnI
 			cursel += 10;
 		if (cursel >= m_parames.size() || pData[1]<'0' || pData[1]>'9' || pData[2]<'0' || pData[2]>'9')
 		{
-			SetDlgItemText(IDC_TEXT_RESULT, L"¶¨Î»Òì³£");
-			m_log.INFO_LOG("¶¨Î»Òì³£");
+			SetDlgItemText(IDC_TEXT_RESULT, L"å®šä½å¼‚å¸¸");
+			m_log.INFO_LOG("å®šä½å¼‚å¸¸");
 			m_server->Send(m_dwConnid, (BYTE*)"NG\0", 3);
 			return HR_OK;
 		}
 		CGrabResultPtr ptrPipeGrabResult;
 		if (!TriggerCameraAndGrabImage(m_Camera, ptrPipeGrabResult, m_src))
 		{
-			AfxMessageBox(L"²É¼¯Ê§°Ü");
-			m_log.INFO_LOG("²É¼¯Ê§°Ü");
-			SetDlgItemText(IDC_TEXT_RESULT, L"¶¨Î»Òì³£");
-			m_log.INFO_LOG("¶¨Î»Òì³£");
+			AfxMessageBox(L"é‡‡é›†å¤±è´¥");
+			m_log.INFO_LOG("é‡‡é›†å¤±è´¥");
+			SetDlgItemText(IDC_TEXT_RESULT, L"å®šä½å¼‚å¸¸");
+			m_log.INFO_LOG("å®šä½å¼‚å¸¸");
 			m_server->Send(m_dwConnid, (BYTE*)"NG\0", 3);
 			return HR_OK;
 		}
@@ -750,34 +766,34 @@ EnHandleResult CSJTU_AGV_DectDlg::OnReceive(ITcpServer * pSender, CONNID dwConnI
 		if (rc == 0)
 		{
 			ShowResult(m_result, cursel);
-			m_log.INFO_LOG("¶¨Î»Íê³É");
-			SetDlgItemText(IDC_TEXT_RESULT, L"¶¨Î»Íê³É");
+			m_log.INFO_LOG("å®šä½å®Œæˆ");
+			SetDlgItemText(IDC_TEXT_RESULT, L"å®šä½å®Œæˆ");
 		}
 		else
 		{
-			SetDlgItemText(IDC_TEXT_RESULT, L"¶¨Î»Òì³£");
-			m_log.INFO_LOG("¶¨Î»Òì³£");
+			SetDlgItemText(IDC_TEXT_RESULT, L"å®šä½å¼‚å¸¸");
+			m_log.INFO_LOG("å®šä½å¼‚å¸¸");
 			//m_server->Send(m_dwConnid, (BYTE*)"NG\0", 3);
 		}
 	}
 	else
 	{
-		SetDlgItemText(IDC_TEXT_RESULT, L"¶¨Î»Òì³£");
-		m_log.INFO_LOG("¶¨Î»Òì³£");
+		SetDlgItemText(IDC_TEXT_RESULT, L"å®šä½å¼‚å¸¸");
+		m_log.INFO_LOG("å®šä½å¼‚å¸¸");
 		m_server->Send(m_dwConnid, (BYTE*)"NG\0", 3);
 	}
 	return HR_OK;
 }
 
 EnHandleResult CSJTU_AGV_DectDlg::OnClose(ITcpServer * pSender, CONNID dwConnID, EnSocketOperation enOperation, int iErrorCode)
-{//¿Í»§¶Ë¶Ï¿ªÊ±µ÷ÓÃ
-	m_log.INFO_LOG("¿Í»§¶Ë¶Ï¿ª");
+{//å®¢æˆ·ç«¯æ–­å¼€æ—¶è°ƒç”¨
+	m_log.INFO_LOG("å®¢æˆ·ç«¯æ–­å¼€");
 	return HR_OK;
 }
 
 EnHandleResult CSJTU_AGV_DectDlg::OnShutdown(ITcpServer * pSender)
-{//¹Ø±Õ¼àÌıÊ±µ÷ÓÃ
-	m_log.INFO_LOG("¹Ø±Õ¼àÌı");
+{//å…³é—­ç›‘å¬æ—¶è°ƒç”¨
+	m_log.INFO_LOG("å…³é—­ç›‘å¬");
 	return HR_OK;
 }
 
@@ -832,4 +848,37 @@ int CSJTU_AGV_DectDlg::LoadParam(const char* filename)
 	}
 	fs.release();
 	return 0;
+}
+
+bool CSJTU_AGV_DectDlg::checkIsNetwork()
+{
+	CoInitialize(NULL);
+	//Â  é€šè¿‡NLAæ¥å£è·å–ç½‘ç»œçŠ¶æ€
+	IUnknown *pUnknown = NULL;
+	BOOL bOnline = TRUE;//æ˜¯å¦åœ¨çº¿Â Â 
+	HRESULT Result = CoCreateInstance(CLSID_NetworkListManager, NULL, CLSCTX_ALL, IID_IUnknown, (void **)&pUnknown);
+	if (SUCCEEDED(Result))
+	{
+		INetworkListManager *pNetworkListManager = NULL;
+		if (pUnknown)
+			Result = pUnknown->QueryInterface(IID_INetworkListManager, (void **)&pNetworkListManager);
+		if (SUCCEEDED(Result))
+		{
+			VARIANT_BOOL IsConnect = VARIANT_FALSE;
+			if (pNetworkListManager)
+				Result = pNetworkListManager->get_IsConnectedToInternet(&IsConnect);
+			if (SUCCEEDED(Result))
+			{
+				bOnline = (IsConnect == VARIANT_TRUE) ? true : false;
+			}
+
+
+		}
+		if (pNetworkListManager)
+			pNetworkListManager->Release();
+	}
+	if (pUnknown)
+		pUnknown->Release();
+	CoUninitialize();
+	return bOnline;
 }
