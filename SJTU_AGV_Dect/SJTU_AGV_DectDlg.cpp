@@ -291,6 +291,15 @@ void CSJTU_AGV_DectDlg::__init__()
 	m_bigFont.CreatePointFont(200, L"微软雅黑");
 	GetDlgItem(IDC_TEXT_RESULT)->SetFont(&m_bigFont);
 
+	CRect listRect;
+	m_result_list.GetClientRect(&listRect);
+	m_result_list.SetExtendedStyle(m_result_list.GetExtendedStyle() | LVS_EX_GRIDLINES
+		| LVS_EX_FULLROWSELECT);
+	m_result_list.InsertColumn(0, L"序号", LVCFMT_CENTER, listRect.Width() / 5);//使ctrlList只有一列
+	m_result_list.InsertColumn(1, L"X方向偏差", LVCFMT_CENTER, listRect.Width() / 4);//使ctrlList只有一列
+	m_result_list.InsertColumn(2, L"Y方向偏差", LVCFMT_CENTER, listRect.Width() / 4);//使ctrlList只有一列
+	m_result_list.InsertColumn(3, L"偏转角度", LVCFMT_CENTER, listRect.Width() - 2 * listRect.Width() / 4 - listRect.Width() / 5);//使ctrlList只有一列
+
 	m_combox_select.AddString(L"工位一");
 	m_combox_select.AddString(L"工位二");
 	m_combox_select.AddString(L"工位三");
@@ -403,14 +412,17 @@ void CSJTU_AGV_DectDlg::OnSize(UINT nType, int cx, int cy)
 	if (m_result_list.m_hWnd)
 	{
 		CRect listRect;
-		m_result_list.DeleteAllItems();
 		m_result_list.GetClientRect(&listRect);
 		m_result_list.SetExtendedStyle(m_result_list.GetExtendedStyle() | LVS_EX_GRIDLINES
 			| LVS_EX_FULLROWSELECT);
-		m_result_list.InsertColumn(0, L"序号", LVCFMT_CENTER, listRect.Width() / 5);//使ctrlList只有一列
-		m_result_list.InsertColumn(1, L"X方向偏差", LVCFMT_CENTER, listRect.Width() / 4);//使ctrlList只有一列
-		m_result_list.InsertColumn(2, L"Y方向偏差", LVCFMT_CENTER, listRect.Width() / 4);//使ctrlList只有一列
-		m_result_list.InsertColumn(3, L"偏转角度", LVCFMT_CENTER, listRect.Width() - 2 * listRect.Width() / 4 - listRect.Width() / 5);//使ctrlList只有一列
+		m_result_list.SetColumnWidth(0, listRect.Width() / 5);
+		m_result_list.SetColumnWidth(1, listRect.Width() / 4);
+		m_result_list.SetColumnWidth(2, listRect.Width() / 4);
+		m_result_list.SetColumnWidth(3, listRect.Width() - 2 * listRect.Width() / 4 - listRect.Width() / 5);
+		//m_result_list.InsertColumn(0, L"序号", LVCFMT_CENTER, listRect.Width() / 5);//使ctrlList只有一列
+		//m_result_list.InsertColumn(1, L"X方向偏差", LVCFMT_CENTER, listRect.Width() / 4);//使ctrlList只有一列
+		//m_result_list.InsertColumn(2, L"Y方向偏差", LVCFMT_CENTER, listRect.Width() / 4);//使ctrlList只有一列
+		//m_result_list.InsertColumn(3, L"偏转角度", LVCFMT_CENTER, listRect.Width() - 2 * listRect.Width() / 4 - listRect.Width() / 5);//使ctrlList只有一列
 	}
 	//重新获得窗口尺寸
 	GetClientRect(&m_wndRect);
