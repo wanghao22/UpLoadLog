@@ -403,6 +403,7 @@ void CSJTU_AGV_DectDlg::OnSize(UINT nType, int cx, int cy)
 	if (m_result_list.m_hWnd)
 	{
 		CRect listRect;
+		m_result_list.DeleteAllItems();
 		m_result_list.GetClientRect(&listRect);
 		m_result_list.SetExtendedStyle(m_result_list.GetExtendedStyle() | LVS_EX_GRIDLINES
 			| LVS_EX_FULLROWSELECT);
