@@ -260,7 +260,7 @@ void CSJTU_AGV_DectDlg::OnBnClickedButtonSetcap()
 
 void CSJTU_AGV_DectDlg::__init__()
 {
-	color_img_flag = false;
+	color_img_flag = true;
 	ShowWindow(SW_MAXIMIZE);
 	SetImgWindow(IDC_SHOW_IMG, _WIN_NAME_);
 
@@ -305,14 +305,6 @@ void CSJTU_AGV_DectDlg::__init__()
 	m_combox_select.AddString(L"工位三");
 	m_combox_select.AddString(L"工位四");
 	m_combox_select.AddString(L"工位五");
-	/*m_combox_select.AddString(L"工位六");
-	m_combox_select.AddString(L"工位七");
-	m_combox_select.AddString(L"工位八");
-	m_combox_select.AddString(L"工位九");
-	m_combox_select.AddString(L"工位十");
-	m_combox_select.AddString(L"工位十一");
-	m_combox_select.AddString(L"工位十二");
-	m_combox_select.AddString(L"工位十三");*/
 	m_combox_select.SetCurSel(0);
 
 	m_src = Mat::zeros(IMG_HEIGHT, IMG_WIDTH, CV_8UC3);
@@ -419,10 +411,6 @@ void CSJTU_AGV_DectDlg::OnSize(UINT nType, int cx, int cy)
 		m_result_list.SetColumnWidth(1, listRect.Width() / 4);
 		m_result_list.SetColumnWidth(2, listRect.Width() / 4);
 		m_result_list.SetColumnWidth(3, listRect.Width() - 2 * listRect.Width() / 4 - listRect.Width() / 5);
-		//m_result_list.InsertColumn(0, L"序号", LVCFMT_CENTER, listRect.Width() / 5);//使ctrlList只有一列
-		//m_result_list.InsertColumn(1, L"X方向偏差", LVCFMT_CENTER, listRect.Width() / 4);//使ctrlList只有一列
-		//m_result_list.InsertColumn(2, L"Y方向偏差", LVCFMT_CENTER, listRect.Width() / 4);//使ctrlList只有一列
-		//m_result_list.InsertColumn(3, L"偏转角度", LVCFMT_CENTER, listRect.Width() - 2 * listRect.Width() / 4 - listRect.Width() / 5);//使ctrlList只有一列
 	}
 	//重新获得窗口尺寸
 	GetClientRect(&m_wndRect);
@@ -520,7 +508,7 @@ int CSJTU_AGV_DectDlg::DectMain(cv::Mat src, int thre, double min_area,
 		m_log.ERROR_LOG("输入为空！");
 		return -1;
 	}
-	Mat gray, dst;
+	Mat gray, dst, hsv;
 	if (src.channels() == 3)
 	{
 		cvtColor(src, gray, CV_BGR2GRAY);
@@ -536,13 +524,15 @@ int CSJTU_AGV_DectDlg::DectMain(cv::Mat src, int thre, double min_area,
 		m_log.ERROR_LOG("图像格式不对！");
 		return -2;
 	}
+	cvtColor(dst, hsv, CV_BGR2HSV);
+	inRange(hsv, Scalar(0, 120, 10), Scalar(25, 255, 200), gray);
 	threshold(gray, gray, thre, 0xff, CV_THRESH_BINARY);
 	//imwrite("111.png", gray);
 	std::vector<std::vector<cv::Point>> contours;
 	cv::findContours(gray.clone(), contours, CV_RETR_LIST,
 		CV_CHAIN_APPROX_NONE);//每个轮廓的全部像素
 	RotatedRect rect;
-	Scalar red(0, 0, 255);
+	Scalar red(0, 255, 0);
 	int sum = 0;
 	for (size_t i = 0; i < contours.size(); i++)
 	{
@@ -640,8 +630,8 @@ bool CSJTU_AGV_DectDlg::TriggerCameraAndGrabImage(CBaslerGigEInstantCamera& came
 					int row = ptrGrabResult->GetHeight();
 					if (color_img_flag)
 					{
-						Mat src = Mat::zeros(row, col, CV_8UC3);
-						memcpy((uint8_t *)srcImg.datastart, (uint8_t *)ptrGrabResult->GetBuffer(), ptrGrabResult->GetImageSize());
+						Mat src = Mat::zeros(1942, 2590, CV_8UC3);
+						memcpy((uint8_t *)src.datastart, (uint8_t *)ptrGrabResult->GetBuffer(), ptrGrabResult->GetImageSize());
 						srcImg = src.clone();
 						m_to.Bayer8ToRgb24(src.data, src.cols, src.rows, srcImg.data, src.step*src.rows);
 						sprintf_s(vbuf, "获取图像成功(%d * %d) RGB", col, row);
@@ -707,7 +697,11 @@ void CSJTU_AGV_DectDlg::ShowResult(AGVResult result, int cursel)
 	sub.angle = -m_parames[cursel].angle + result.angle;
 	char msg[30];
 	sprintf_s(msg, "%.2f,%.2f,%.2f", sub.pt_x, sub.pt_y, sub.angle);
+#ifdef _TEST_PROGRAME_
+	m_server->Send(m_dwConnid, (BYTE*)"0.00,0.00,0.00\0", 15);
+#else
 	m_server->Send(m_dwConnid, (BYTE*)msg, 30);
+#endif
 	cstr.Format(L"%d", m_cnt);
 	int intm = m_result_list.InsertItem(0, cstr);
 	cstr.Format(L"%.2f", sub.pt_x);
@@ -772,10 +766,7 @@ EnHandleResult CSJTU_AGV_DectDlg::OnReceive(ITcpServer * pSender, CONNID dwConnI
 			return HR_OK;
 		}
 		int rc = 0;
-		if (cursel == 5)
-			rc = DectMain(m_src, _DECT_THRE_5, _DECT_MIN_AREA_, _DECT_MAX_AREA_, _DECT_MIN_SUB_, _DECT_MAX_SUB_);
-		else
-			rc = DectMain(m_src, _DECT_THRE_, _DECT_MIN_AREA_, _DECT_MAX_AREA_, _DECT_MIN_SUB_, _DECT_MAX_SUB_);
+		rc = DectMain(m_src, _DECT_THRE_, _DECT_MIN_AREA_, _DECT_MAX_AREA_, _DECT_MIN_SUB_, _DECT_MAX_SUB_);
 		if (rc == 0)
 		{
 			ShowResult(m_result, cursel);
@@ -786,7 +777,11 @@ EnHandleResult CSJTU_AGV_DectDlg::OnReceive(ITcpServer * pSender, CONNID dwConnI
 		{
 			SetDlgItemText(IDC_TEXT_RESULT, L"定位异常");
 			m_log.INFO_LOG("定位异常");
-			//m_server->Send(m_dwConnid, (BYTE*)"NG\0", 3);
+#ifdef _TEST_PROGRAME_
+			m_server->Send(m_dwConnid, (BYTE*)"0.00,0.00,0.00\0", 15);
+#else
+			m_server->Send(m_dwConnid, (BYTE*)"NG\0", 3);
+#endif
 		}
 	}
 	else

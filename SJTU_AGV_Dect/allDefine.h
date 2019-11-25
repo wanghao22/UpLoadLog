@@ -20,6 +20,8 @@ struct AGVResult
 	float pt_y;
 	float angle;
 };
+//≤‚ ‘
+#define _TEST_PROGRAME_ 
 
 //TEST
 #define _TEST_IMG_FILE_	"D:\\Code\\C++\\vc12 MFC\\SJTU_AGV_Dect\\imgs\\Image__2019-10-12__11-50-30.bmp"
@@ -36,3 +38,6 @@ struct AGVResult
 #define _DECT_MAX_AREA_	300000.0
 #define _DECT_MIN_SUB_	500.0f
 #define _DECT_MAX_SUB_	700.0f
+
+#define _DECT_HSV_MIN_	cv::Scalar(0, 120, 10)
+#define _DECT_HSV_MAX_	cv::Scalar(25, 255, 200)
