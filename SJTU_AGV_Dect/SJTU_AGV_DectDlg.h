@@ -14,7 +14,7 @@
 #include <pylon/PylonGUI.h>
 #include <pylon/gige/BaslerGigEInstantCamera.h>
 #include <HPSocket.h>
-#include "Bayer2BGR.h"
+#include <Bayer2BGR.h>
 #include <Netlistmgr.h>
 
 using namespace Pylon;

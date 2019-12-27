@@ -51,7 +51,6 @@ artifacts/
 *.meta
 *.obj
 *.exe
-*.lib
 *.dll
 *.pch
 *.pdb
@@ -76,8 +75,6 @@ _Chutzpah*
 
 # Visual C++ cache files
 ipch/
-include/
-lib/
 imgs/
 *.aps
 *.ncb

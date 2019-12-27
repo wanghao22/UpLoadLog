@@ -36,9 +36,6 @@
     <ClInclude Include="allDefine.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Bayer2BGR.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SJTU_AGV_Dect.cpp">
@@ -48,9 +45,6 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="stdafx.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Bayer2BGR.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

@@ -7,4 +7,5 @@ Get The Log From Other Projects
 
 1. using OpenCV2.4.11
 2. using HP-Socket
-3. using GLOG(by myself)
+3. using GLOG、Byaer2BGR(by myself)
+
